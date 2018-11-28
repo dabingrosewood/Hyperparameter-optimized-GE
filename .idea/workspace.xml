@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4c8f1323-0890-45ea-9106-b5135fc09391" name="Default" comment="" />
+    <list default="true" id="4c8f1323-0890-45ea-9106-b5135fc09391" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/para_opt.py" beforeDir="false" afterPath="$PROJECT_DIR$/para_opt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmp_fitness" beforeDir="false" afterPath="$PROJECT_DIR$/tmp_fitness" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,7 +22,7 @@
     <SUITE FILE_PATH="coverage/src$for_irace.coverage" NAME="for_irace Coverage Results" MODIFIED="1542058588718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/src$santa.coverage" NAME="santa Coverage Results" MODIFIED="1542627005555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/src$parameters.coverage" NAME="parameters Coverage Results" MODIFIED="1541805637445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/algorithm" />
-    <SUITE FILE_PATH="coverage/src$para_opt.coverage" NAME="para_opt Coverage Results" MODIFIED="1543335128128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/src$para_opt.coverage" NAME="para_opt Coverage Results" MODIFIED="1543366260137" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/src$example_mix.coverage" NAME="example_mix Coverage Results" MODIFIED="1543332828544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -46,8 +51,8 @@
       <file leaf-file-name="para_opt.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/para_opt.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+            <state relative-caret-position="438">
+              <caret line="89" column="17" lean-forward="true" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
               <folding>
                 <element signature="e#175#200#0" expanded="true" />
               </folding>
@@ -122,10 +127,10 @@
       <find>best</find>
       <find>Phenotype:</find>
       <find>print_final_stats</find>
-      <find>now is the</find>
-      <find>now is</find>
+      <find />
+      <find />
       <find>now</find>
-      <find>now is the test phasete</find>
+      <find />
       <find>training_fitness</find>
       <find>level</find>
       <find>AttributeError</find>
@@ -133,6 +138,9 @@
       <find>fitness</find>
       <find>lb</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -174,11 +182,12 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="-1920" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -345,15 +354,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="0" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1920" y="0" width="1920" height="1080" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5007987" side_tool="true" weight="0.24875621" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.319403" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920127" visible="true" weight="0.3800995" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49920127" visible="true" weight="0.3034826" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.34925374" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19861555" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
@@ -766,8 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/para_opt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="61" column="13" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        <state relative-caret-position="438">
+          <caret line="89" column="17" lean-forward="true" selection-start-line="89" selection-start-column="17" selection-end-line="89" selection-end-column="17" />
           <folding>
             <element signature="e#175#200#0" expanded="true" />
           </folding>
