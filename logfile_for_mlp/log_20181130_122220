@@ -1,0 +1,21 @@
+CACHE:                  True
+CODON_SIZE:             100000
+CROSSOVER:	variable_twopoint
+CROSSOVER_PROBABILITY:	0.25913184936895584
+DEBUG:                  False
+GENERATIONS:            50
+MAX_GENOME_LENGTH:	177
+GRAMMAR_FILE:           letter.bnf
+INITIALISATION:         PI_grow
+INVALID_SELECTION:      False
+MAX_INIT_TREE_DEPTH:	7
+MAX_TREE_DEPTH:		47
+MUTATION:               int_flip_per_codon
+POPULATION_SIZE:        500
+FITNESS_FUNCTION:       string_match
+REPLACEMENT:            generational
+SELECTION:              tournament
+TARGET:                 Hello world!
+TOURNAMENT_SIZE:	37
+VERBOSE:                False
+

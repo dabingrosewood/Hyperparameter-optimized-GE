@@ -17,11 +17,11 @@ from BayesOpt import BO
 from BayesOpt.Surrogate import RandomForest
 from BayesOpt.SearchSpace import ContinuousSpace, NominalSpace, OrdinalSpace
 
-np.random.seed(666)
+np.random.seed(67)
 
-filename='../parameters/mlp_test/regression.txt'
+filename='../parameters/mlp_test/string_match.txt'
 dim = 2
-n_step = 50
+n_step = 100
 n_init_sample = 10 * dim
 eval_type = 'dict' # control the type of parameters for evaluation: dict | list
 
@@ -35,6 +35,27 @@ def obj_func(x):
         # add more parameters here
         if re.search('CROSSOVER_PROBABILITY',line):
             file_out.writelines(re.sub(line, ('CROSSOVER_PROBABILITY:\t' + str(x['CROSSOVER_PROBABILITY'])+'\n'), line))
+
+        elif re.search('INITIALISATION', line):
+            file_out.writelines(
+                re.sub(line, ('INITIALISATION:\t' + str(x['INITIALISATION']) + '\n'), line))
+
+        elif re.search('CROSSOVER', line):
+            file_out.writelines(
+                re.sub(line, ('CROSSOVER:\t' + str(x['CROSSOVER']) + '\n'), line))
+
+        elif re.search('MUTATION', line):
+            file_out.writelines(
+                re.sub(line, ('MUTATION:\t' + str(x['MUTATION']) + '\n'), line))
+
+        elif re.search('MUTATION_PROBABILITY', line):
+            file_out.writelines(
+                re.sub(line, ('MUTATION_PROBABILITY:\t' + str(x['MUTATION_PROBABILITY']) + '\n'), line))
+
+        elif re.search('SELECTION', line):
+            file_out.writelines(
+                re.sub(line, ('SELECTION:\t' + str(x['SELECTION']) + '\n'), line))
+
 
         elif re.search('MAX_GENOME_LENGTH', line):
             file_out.writelines(
@@ -90,16 +111,21 @@ def obj_func(x):
     f=tmp/(5-err)
     return f
 
-
+##EA parameters
+INITIALISATION= NominalSpace(['PI_grow','rhh','uniform_tree'],'INITIALISATION')
+CROSSOVER= NominalSpace(['variable_onepoint','variable_twopoint','fixed_twopoint','fixed_onepoint'],'CROSSOVER')
 CROSSOVER_PROBABILITY = ContinuousSpace([0,1],'CROSSOVER_PROBABILITY')
-MAX_GENOME_LENGTH = OrdinalSpace([100,1000],'MAX_GENOME_LENGTH')
-MAX_INIT_TREE_DEPTH = OrdinalSpace([5,15],'MAX_INIT_TREE_DEPTH')
-MAX_TREE_DEPTH = OrdinalSpace([10,100],'MAX_TREE_DEPTH')
-TOURNAMENT_SIZE = OrdinalSpace([1,50],'TOURNAMENT_SIZE')
-N = NominalSpace(['OK'], 'N')
+MUTATION=NominalSpace(['int_flip_per_codon','int_flip_per_ind','subtree'],'MUTATION')
+MUTATION_PROBABILITY= ContinuousSpace([0,1],'MUTATION_PROBABILITY')
+SELECTION=NominalSpace(['tournament','nsga2_selection','truncation'],'SELECTION')
 
-search_space = CROSSOVER_PROBABILITY + MAX_GENOME_LENGTH + MAX_INIT_TREE_DEPTH + MAX_TREE_DEPTH + TOURNAMENT_SIZE + N
-# search_space = CROSSOVER_PROBABILITY + TOURNAMENT_SIZE + N
+MAX_GENOME_LENGTH = OrdinalSpace([100,1000],'MAX_GENOME_LENGTH')
+MAX_INIT_TREE_DEPTH = OrdinalSpace([1,25],'MAX_INIT_TREE_DEPTH')
+MAX_TREE_DEPTH = OrdinalSpace([20,100],'MAX_TREE_DEPTH')
+TOURNAMENT_SIZE = OrdinalSpace([1,50],'TOURNAMENT_SIZE')
+
+search_space =INITIALISATION+CROSSOVER+CROSSOVER_PROBABILITY+MUTATION+MUTATION_PROBABILITY+SELECTION+MAX_GENOME_LENGTH+MAX_INIT_TREE_DEPTH+MAX_TREE_DEPTH+TOURNAMENT_SIZE
+
 
 
 model = RandomForest(levels=search_space.levels)
@@ -108,7 +134,7 @@ opt = BO(search_space, obj_func, model, max_iter=n_step,
          n_init_sample=n_init_sample,
          n_point=1,        # number of the candidate solution proposed in each iteration
          n_job=1,          # number of processes for the parallel execution
-         minimize=True,
+         minimize=False,
          eval_type=eval_type, # use this parameter to control the type of evaluation
          verbose=True,     # turn this off, if you prefer no output
          optimizer='MIES')
