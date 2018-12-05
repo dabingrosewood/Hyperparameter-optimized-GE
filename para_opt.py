@@ -1,11 +1,10 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
-Created on Fri Aug  4 15:57:47 2017
 
-@author: wangronin
-@email: wangronin@gmail.com
-        h.wang@liacs.leidenuniv.nl
+@author: Yitan Lou
+@email: dabing930714@gmail.com
+        y.lou@liacs.leidenuniv.nl
 """
 
 from pdb import set_trace
@@ -20,9 +19,8 @@ from BayesOpt.SearchSpace import ContinuousSpace, NominalSpace, OrdinalSpace
 np.random.seed(67)
 
 filename='../parameters/mlp_test/string_match.txt'
-dim = 2
 n_step = 100
-n_init_sample = 10 * dim
+n_init_sample = 20
 eval_type = 'dict' # control the type of parameters for evaluation: dict | list
 
 
@@ -61,13 +59,13 @@ def obj_func(x):
             file_out.writelines(
                 re.sub(line, ('MAX_GENOME_LENGTH:\t' + str(x['MAX_GENOME_LENGTH']) + '\n'), line))
 
-        elif re.search('MAX_INIT_TREE_DEPTH', line):
-            file_out.writelines(
-                re.sub(line, ('MAX_INIT_TREE_DEPTH:\t' + str(x['MAX_INIT_TREE_DEPTH']) + '\n'), line))
-
-        elif re.search('MAX_TREE_DEPTH', line):
-            file_out.writelines(
-                re.sub(line, ('MAX_TREE_DEPTH:\t\t' + str(x['MAX_TREE_DEPTH']) + '\n'), line))
+        # elif re.search('MAX_INIT_TREE_DEPTH', line):
+        #     file_out.writelines(
+        #         re.sub(line, ('MAX_INIT_TREE_DEPTH:\t' + str(x['MAX_INIT_TREE_DEPTH']) + '\n'), line))
+        #
+        # elif re.search('MAX_TREE_DEPTH', line):
+        #     file_out.writelines(
+        #         re.sub(line, ('MAX_TREE_DEPTH:\t\t' + str(x['MAX_TREE_DEPTH']) + '\n'), line))
 
         elif re.search('TOURNAMENT_SIZE', line):
             file_out.writelines(
@@ -117,14 +115,15 @@ CROSSOVER= NominalSpace(['variable_onepoint','variable_twopoint','fixed_twopoint
 CROSSOVER_PROBABILITY = ContinuousSpace([0,1],'CROSSOVER_PROBABILITY')
 MUTATION=NominalSpace(['int_flip_per_codon','int_flip_per_ind','subtree'],'MUTATION')
 MUTATION_PROBABILITY= ContinuousSpace([0,1],'MUTATION_PROBABILITY')
-SELECTION=NominalSpace(['tournament','nsga2_selection','truncation'],'SELECTION')
+SELECTION=NominalSpace(['tournament','truncation'],'SELECTION')
 
 MAX_GENOME_LENGTH = OrdinalSpace([100,1000],'MAX_GENOME_LENGTH')
-MAX_INIT_TREE_DEPTH = OrdinalSpace([1,25],'MAX_INIT_TREE_DEPTH')
-MAX_TREE_DEPTH = OrdinalSpace([20,100],'MAX_TREE_DEPTH')
+# MAX_INIT_TREE_DEPTH = OrdinalSpace([5,25],'MAX_INIT_TREE_DEPTH')
+# MAX_TREE_DEPTH = OrdinalSpace([20,100],'MAX_TREE_DEPTH')
 TOURNAMENT_SIZE = OrdinalSpace([1,50],'TOURNAMENT_SIZE')
 
-search_space =INITIALISATION+CROSSOVER+CROSSOVER_PROBABILITY+MUTATION+MUTATION_PROBABILITY+SELECTION+MAX_GENOME_LENGTH+MAX_INIT_TREE_DEPTH+MAX_TREE_DEPTH+TOURNAMENT_SIZE
+# search_space =CROSSOVER+CROSSOVER_PROBABILITY + MUTATION+MUTATION_PROBABILITY+SELECTION + MAX_GENOME_LENGTH + MAX_INIT_TREE_DEPTH + MAX_TREE_DEPTH + TOURNAMENT_SIZE
+search_space =INITIALISATION + CROSSOVER+CROSSOVER_PROBABILITY + MUTATION+MUTATION_PROBABILITY+SELECTION + MAX_GENOME_LENGTH   + TOURNAMENT_SIZE
 
 
 
